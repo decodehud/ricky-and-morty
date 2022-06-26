@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import Image from 'next/image'
+
+import Card from '../componentes/card';
 
 
 export const Index = () => {
@@ -13,6 +14,7 @@ export const Index = () => {
     console.log(data.results);
   }
 
+
   useEffect(() => {
 
     listar();
@@ -20,11 +22,27 @@ export const Index = () => {
   }, [])
 
 
-
   return (
     <>
-      <div>Ricky and Morty</div>
 
+      {
+        characters.map((character, i) => (
+
+          <>
+
+            <Card
+              imagen={character.image}
+              nombre={character.name}
+              especie={character.species}
+              genero={character.gender}
+
+            />
+
+          </>
+
+        )
+        )
+      }
 
     </>
   )
